@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum NfeStatus {
+  PROCESSING
+  AUTHORIZED
+  REJECTED
+  ERROR
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  name      String
+  cnpj      String   @unique
+  ie        String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  nfes      Nfe[]
+}
+
+model Nfe {
+  id           String    @id @default(uuid())
+  status       NfeStatus @default(PROCESSING)
+
+  customerId   String
+  customer     Customer  @relation(fields: [customerId], references: [id])
+
+  cfop         String
+  cst          String
+
+  totalValue   Decimal   @db.Decimal(12,2)
+
+  xml          String?
+  protocol     String?
+  rejectionMsg String?
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  items        NfeItem[]
+}
+
+model NfeItem {
+  id        String  @id @default(uuid())
+
+  nfeId     String
+  nfe       Nfe     @relation(fields: [nfeId], references: [id])
+
+  name      String
+  quantity  Int
+  unitPrice Decimal @db.Decimal(12,2)
+  total     Decimal @db.Decimal(12,2)
+}
+
+
