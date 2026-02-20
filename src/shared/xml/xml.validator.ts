@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as libxml from 'libxmljs2';
 
 export function validateXml(xml: string): void {
-  const xsdPath = path.join(__dirname, 'nfe.xsd');
+  const xsdPath = path.join(__dirname, 'schemas', 'nfe.xsd');
 
   const xsd = fs.readFileSync(xsdPath, 'utf-8');
   const xsdDoc = libxml.parseXml(xsd);

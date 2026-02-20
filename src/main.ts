@@ -18,11 +18,12 @@ async function bootstrap() {
     .setTitle("NF-e Service")
     .setDescription("Microserviço de emissão de NF-e (mock SEFAZ)")
     .setVersion("1.0")
+    .addBearerAuth()  //JWT no Swagger
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("docs", app, document);
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

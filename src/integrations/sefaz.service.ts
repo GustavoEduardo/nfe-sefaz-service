@@ -4,7 +4,12 @@ import { SefazMock } from './sefaz.mock';
 @Injectable()
 export class SefazService {
   async sendNfe(xml: string) {
-    // lógica futura de integração real
+    // Futuramente aqui entraria:
+    // - Assinatura digital
+    // - Envelope SOAP
+    // - Comunicação com WebService oficial
+    // - Tratamento de retorno
     return SefazMock.sendNfe(xml);
   }
+
 }
