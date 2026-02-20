@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "1a0f564b-ce12-440e-9914-f271e128ad3c",
+		"name": "NFESERVICE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16481977"
+	},
+	"item": [
+		{
+			"name": "NFE",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "undefined",
+									"type": "any"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"naturezaOperacao\": \"Venda de mercadoria\",\n  \"numero\": 2,\n  \"serie\": 1,\n  \"dataEmissao\": \"2026-02-20T09:30:00.000Z\",\n\n  \"customerName\": \"Mercadinho do Zé\",\n  \"customerCnpj\": \"48199588000180\",\n  \"customerIe\": \"123456789\",\n\n  \"cfop\": \"5102\",\n  \"cst\": \"00\",\n\n  \"valorTotal\": 47.30,\n\n  \"items\": [\n    {\n      \"codigo\": \"001\",\n      \"name\": \"Café 500g\",\n      \"ncm\": \"09012100\",\n      \"unidade\": \"UN\",\n      \"quantity\": 2,\n      \"unitPrice\": 18.90,\n      \"total\": 37.80\n    },\n    {\n      \"codigo\": \"002\",\n      \"name\": \"Refrigerante 2L\",\n      \"ncm\": \"22021000\",\n      \"unidade\": \"UN\",\n      \"quantity\": 1,\n      \"unitPrice\": 9.50,\n      \"total\": 9.50\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/nfe",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nfe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "undefined",
+									"type": "any"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/nfe/a004a6b2-f4b8-49f3-9b89-9ae745b7fa2f",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nfe",
+								"a004a6b2-f4b8-49f3-9b89-9ae745b7fa2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET XML",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "undefined",
+									"type": "any"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/nfe/a004a6b2-f4b8-49f3-9b89-9ae745b7fa2f/xml",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nfe",
+								"a004a6b2-f4b8-49f3-9b89-9ae745b7fa2f",
+								"xml"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"teste\",\n    \"password\": \"mudar@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		},
+		{
+			"key": "access_token",
+			"value": ""
+		}
+	]
+}

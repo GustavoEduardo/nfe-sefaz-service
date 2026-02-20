@@ -21,7 +21,7 @@ export class NfeService {
     private readonly sefazService: SefazService,
   ) {}
 
- async create(dto: CreateNfeDto) {
+  async create(dto: CreateNfeDto) {
   this.logger.log('Iniciando criação da NF-e', { dto: { numero: dto.numero, serie: dto.serie } });
 
   // Validações
@@ -34,7 +34,7 @@ export class NfeService {
     const expected = item.quantity * item.unitPrice;
 
     if (Number(expected.toFixed(2)) !== Number(item.total.toFixed(2))) {
-      this.logger.warn('Valor total da NF-e não confere', { totalCalculado, valorDto: dto.valorTotal });
+      this.logger.warn('Valor total da NF-e não confere', { valorDto: dto.valorTotal });
       throw new BadRequestException(
         `Total inválido para o produto ${item.codigo}`,
       );
@@ -148,7 +148,7 @@ export class NfeService {
     id: nfe.id,
     status: 'PROCESSING',
   };
-}
+  }
 
   private async processNfe(nfeId: string, xml: string) {
     try {

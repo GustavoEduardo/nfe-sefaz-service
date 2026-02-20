@@ -18,7 +18,7 @@ async function bootstrap() {
     .setTitle("NF-e Service")
     .setDescription("Microserviço de emissão de NF-e (mock SEFAZ)")
     .setVersion("1.0")
-    .addBearerAuth()  //JWT no Swagger
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

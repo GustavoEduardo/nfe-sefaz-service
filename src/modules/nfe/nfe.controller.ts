@@ -2,7 +2,7 @@ import { Controller, Get, Param, Post, Body, Res } from "@nestjs/common";
 import { CreateNfeDto } from "./dto/create-nfe.dto";
 import express from "express";
 import { NfeService } from "./nfe.service";
-import { ApiBody, ApiOperation, ApiParam, ApiResponse } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse } from "@nestjs/swagger";
 
 @Controller("nfe")
 export class NfeController {
@@ -10,6 +10,7 @@ export class NfeController {
 
   // ---------------------------
   @Post()
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Cria uma NFe no banco e inicia o processo de emissão.',
   })
@@ -52,6 +53,7 @@ export class NfeController {
 
   // ---------------------------
   @Get(":id")
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Retorna o status atual da NFe pelo id.',
   })
@@ -88,6 +90,7 @@ export class NfeController {
 
   // ---------------------------
   @Get(":id/xml")
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Retorna o XML da NFe autorizada pelo id.',
   })

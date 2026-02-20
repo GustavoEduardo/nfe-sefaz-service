@@ -2,7 +2,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthLoginDto } from './authLoginDTO';
 import { Public } from 'src/modules/common/decorators/public.decorator';
-import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -10,7 +10,6 @@ export class AuthController {
 
   @Public()
   @Post('/login')
-  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Faz o login e retorna access_token (JWT)',
   })

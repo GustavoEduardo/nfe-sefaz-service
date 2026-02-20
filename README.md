@@ -51,19 +51,16 @@ Senha: mudar@123
 
 ## 📚 Acessar Swagger
 
-http://localhost:3000/api
+http://localhost:3000/docs
 
 ------------------------------------------------------------------------
 
-## 🔑 Fluxo de uso
+## 🔑 Fluxo de uso Swagger
 
 1.  Fazer login em `/auth/login`
 2.  Copiar o token JWT retornado
 3.  No Swagger, clicar em **Authorize**
-4.  Informar:
-
-Bearer `<seu_token>`{=html}
-
+4.  Informar o token retornado
 5.  Utilizar os endpoints protegidos
 
 ------------------------------------------------------------------------
@@ -75,8 +72,8 @@ Persistência de:
 -   Clientes
 -   Produtos
 -   Notas Fiscais
--   Status da NF-e
 -   XML autorizado
+-   Usuários (apenas para testar autenticação JWT)
 
 
 ------------------------------------------------------------------------
@@ -92,6 +89,8 @@ O projeto roda totalmente via Docker, sem necessidade de:
 ------------------------------------------------------------------------
 
 ## 🧑‍💻 Autor
+
+[Gustavo L](https://www.linkedin.com/in/gustavo-barbosa-438b6694/)
 
 Projeto desenvolvido para Desafio Técnico – Engenheiro(a) de
 Software Full Stack – Backend

@@ -28,9 +28,9 @@ async function main() {
       },
     });
 
-    console.log('✅ Usuário admin criado');
+    console.log('Usuário admin criado');
   } else {
-    console.log('ℹ️ Usuário admin já existe');
+    console.log('ℹUsuário admin já existe');
   }
 }
 
