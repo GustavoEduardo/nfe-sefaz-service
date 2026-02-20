@@ -3,7 +3,7 @@
 API RESTful para simulação de emissão de NF-e (Nota Fiscal Eletrônica),
 com autenticação JWT, validação de XML via XSD, persistência em banco
 relacional e integração simulada com SEFAZ (mock assíncrono).
-A arquitetura já está preparada para [substituição por integração SOAP real](https://portal.fazenda.sp.gov.br/servicos/nfe/Paginas/URL-WEBSERVICES.aspx) com certificado digital.
+A arquitetura já está preparada para substituição por [integração SOAP real](https://portal.fazenda.sp.gov.br/servicos/nfe/Paginas/URL-WEBSERVICES.aspx) com certificado digital.
 
 ------------------------------------------------------------------------
 
