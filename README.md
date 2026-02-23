@@ -28,7 +28,7 @@ A arquitetura já está preparada para substituição por [integração SOAP rea
 
 ------------------------------------------------------------------------
 
-## 🔹 Subir a aplicação
+## 🚀 Subir a aplicação
 
 ``` bash
 docker compose up --build
@@ -40,6 +40,21 @@ O processo automaticamente:
 -   Aplica migrations
 -   Executa seed automático (em produção para fins do teste)
 -   Inicia a API
+
+- ##### API disponível na porta 3000 (informado no .env como padrão)
+
+------------------------------------------------------------------------
+
+
+### 🔹 Rodar API local (opcional)
+
+- ⚠️⚠️⚠️ Mudar host do banco em DATABASE_URL no .env para local
+
+- docker compose up -d postgres (sobe apenas o banco)
+- npm i (instalar dependências)
+- npm start
+
+- #####  API disponível na porta 3000 (informado no .env como padrão)
 
 ------------------------------------------------------------------------
 
@@ -75,17 +90,6 @@ Persistência de:
 -   Notas Fiscais
 -   XML autorizado
 -   Usuários (apenas para testar autenticação JWT)
-
-
-------------------------------------------------------------------------
-
-## 🧪 Ambiente 100% Containerizado
-
-O projeto roda totalmente via Docker, sem necessidade de:
-
--   Node instalado localmente
--   Banco local
--   Configuração manual de seed
 
 ------------------------------------------------------------------------
 
